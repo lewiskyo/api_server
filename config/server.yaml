@@ -1,0 +1,19 @@
+# ps: key不能有下划线
+app:
+  appname: shiva
+  # # possible values: DEBUG, INFO, WARNING, ERROR, FATAL
+  loglevel: "DEBUG"
+  host: "127.0.0.1"
+  port: "8080"
+  pprof: "18080"
+
+mysql:
+  ip: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: 123456
+  database: "test"
+
+redis:
+  ip: "127.0.0.1"
+  port: 6379
