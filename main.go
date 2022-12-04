@@ -23,6 +23,7 @@ func main() {
 	// router.Use(gin.Recovery())
 	router.GET("/ping", homeController.Ping)
 	router.POST("/parse", homeController.Parse)
+	router.GET("/dogpic", homeController.DogPictures)
 
 	go func() {
 		log.Println(http.ListenAndServe(fmt.Sprintf("%s:%s", host, pprof), nil))

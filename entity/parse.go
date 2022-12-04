@@ -12,8 +12,3 @@ type ParseRb struct {
 		Size  uint32 `json:"size"`
 	}
 }
-
-type ParseRet struct {
-	Status uint        `json:"status"`
-	Data   interface{} `json:"data"`
-}
