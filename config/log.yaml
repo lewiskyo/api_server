@@ -1,0 +1,13 @@
+accesslog: data/log/access.log #访问日志,当设置为off表示关闭日志;其他字符串为存放路径,默认存在应用根目录下data/log/access.log
+errorlog: data/log/error.log   #服务错误日志以及程序运行过程调用logger模块方法打印日志都会存放在此文件,默认存在应用根目录下data/log/error.log
+serverlog: data/log/server.log #服务启动/关闭/panic日志存放,默认存在应用根目录下data/log/server.log
+level: info                    #日志等级,支持 debug/info/warn/error/dpanic/panic/fatal 共7种日志级别,级别从左往右为从小到大
+maxsize: 100                   #日志轮转配置, 单位MB,表示最大文件大,超出则会新生成一个日志文件,默认为100MB
+maxage: 3                      #日志轮转配置, 文件最多保存多少天,单位天,默认不移除
+maxbackups: 10                 #日志轮转配置, 日志文件最多保存多少个备份,默认保留所有日志文件
+compress: false                #日志轮转配置, 决定是否压缩日志文件存放
+accesslogformat: ""            #accessLog自定义格式，默认使用 "${ip}\t[${time}]\t${status}\t${url}\t${protocol}\t${bytesSent}\t${referer}\t${ua}\t${reqHeaders:X-Forwarded-For}\t${host}\t${latency}"
+errorlogfullcaller: true       #错误日志是否打印调用栈全路径，默认为false
+timeformat: "2006-01-02 15:04:05" #accessLog和errorLog中输出的时间格式，默认为"2006-01-02 15:04:05"
+timezone: ""                  #时区，默认为local
+accesslogtimeinterval: 0      #accessLog打印的时间更新周期，${time}选项，默认为500ms

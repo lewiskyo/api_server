@@ -1,0 +1,5 @@
+appname: api_server            #应用名称,默认为api_server
+servername: shiva              #配置接口响应header的server响应头
+httpport: 8080                 #应用监听端口,默认为80
+httpaddr: 127.0.0.1            #监听IP地址,默认为127.0.0.1
+debug: true                    #是否debug，默认为false,当为true时，框架则gin.SetMode("debug"),否则为gin.SetMode("release")

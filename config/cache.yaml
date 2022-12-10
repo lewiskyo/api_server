@@ -1,0 +1,19 @@
+# redis
+redis:
+  local:
+    addrs: #单实例地址，格式为 ip:端口
+      - "127.0.0.1:6379"
+    password: ""                #集群密码
+    username: ""                #集群账号
+    routebylatency: false       #默认false,为true则ReadOnly自动置为true,表示在处理只读命令时，可以在一个slot对应的主节点和所有从节点中选取Ping()的响应时长最短的一个节点来读数据
+    routerandomly: false        #默认false,为true则ReadOnly自动置为true,表示在处理只读命令时，可以在一个slot对应的主节点和所有从节点中随机挑选一个节点来读数据
+    maxretries: 0               #命令执行失败时，最多重试多少次，默认为0即不重试
+    dialtimeout: 0              #连接建立超时时间，默认5秒
+    readtimeout: 0              #读超时，默认3秒， -1表示取消读超时
+    writetimeout: 0             #写超时，默认等于读超时，-1表示取消读超时
+    poolsize: 100                 #连接池最大socket连接数，默认为5倍CPU数， 5 * runtime.NumCPU,注意这个是每个节点的连接数，不是整个集群的链接数
+    minidleconns: 0             #在启动阶段创建指定数量的Idle连接，并长期维持idle状态的连接数不少于指定数量
+    pooltimeout: 0              #当所有连接都处在繁忙状态时，客户端等待可用连接的最大等待时长，默认为读超时+1秒
+    idletimeout: 0              #闲置超时，默认5分钟，-1表示取消闲置超时检查
+    maxconnage: 0               #连接存活时长，从创建开始计时，超过指定时长则关闭连接，默认为0，即不关闭存活时长较长的连接
+    idlecheckfrequency: 0       #闲置连接检查的周期，无默认值，由ClusterClient统一对所管理的redis.Client进行闲置连接检查。初始化时传递-1给redis.Client表示redis.Client自己不用做周期性检查，只在客户端获取连接时对闲置连接进行处理  gz: #redis cluster key,配置多实例时可用cache.RedisCluster("default")来获取,默认获取default连接
